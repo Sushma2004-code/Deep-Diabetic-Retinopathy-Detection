@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2>Dashboard</h2>
+<div class="stats-row">
+  <div class="stat card"><h3>{{ total }}</h3><p>Total Images</p></div>
+  <div class="stat card"><h3>{{ recent }}</h3><p>Uploaded (30d)</p></div>
+</div>
+<canvas id="chart" width="600" height="250"></canvas>
+<script src="{% static 'js/chart.min.js' %}"></script>
+<script>
+const data = {{ chart_data|safe }};
+const labels = data.map(d => d.day);
+const counts = data.map(d => d.count);
+const ctx = document.getElementById('chart').getContext('2d');
+new Chart(ctx, { type:'line', data:{ labels: labels, datasets:[{ label:'Images per day', data: counts, fill:false }]}, options:{} });
+</script>
+{% endblock %}
