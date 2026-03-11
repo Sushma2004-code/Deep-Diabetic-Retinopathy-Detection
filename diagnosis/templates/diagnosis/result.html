@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Result{% endblock %}
+{% block content %}
+<h2>Diagnosis Result</h2>
+<div class="result-grid">
+  <div class="card">
+    {% if image.image %}<img src="{{ image.image.url }}" alt="img"/>{% endif %}
+  </div>
+  <div class="card">
+    <h3>Prediction: <strong>{{ image.label }}</strong></h3>
+    <h4>Probabilities</h4>
+    <ul>
+      {% for k,v in probs.items %}<li>{{ k }}: {{ v }}</li>{% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
