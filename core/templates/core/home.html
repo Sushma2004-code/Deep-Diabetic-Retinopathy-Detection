@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}DEEPDIABETIC - Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <h1>DEEPDIABETIC</h1>
+    <p>Expanded project with dashboard, authentication, CSV export and analytics.</p>
+    <div class="hero-actions">
+      <a class="btn" href="{% url 'datasets:list' %}">Datasets</a>
+      <a class="btn" href="{% url 'diagnosis:upload' %}">Diagnose</a>
+      <a class="btn" href="{% url 'analytics:dashboard' %}">Dashboard</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

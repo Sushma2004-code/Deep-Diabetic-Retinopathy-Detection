@@ -1,0 +1,1 @@
+Place model weights into media/models/ and update diagnosis/model.py. Use management command: python manage.py create_dummy_users
